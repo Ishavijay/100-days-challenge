@@ -1,24 +1,48 @@
 //Write a program to check if a number is an Armstrong number.
+
 #include <stdio.h>
-int main(){
-int num,sum;
-    printf("Enter how many digit number you want to check 3 or 4: ");
+#include <math.h>
+
+int main() {
+    int num, originalNum, remainder, n = 0;
+    double result = 0.0;
+
+   
+    printf("Enter a number to check if it is an Armstrong number: ");
     scanf("%d", &num);
-     
-    if(num==3){
-      printf("Enter the first digit:");
-    }
-    else if(num==4){
 
-    }else{
+    originalNum = num;
 
+    
+    int temp = num;
+    while (temp != 0) {
+        temp /= 10;
+        ++n;
     }
-return 0;
+
+   
+    temp = num;
+    while (temp != 0) {
+        remainder = temp % 10;
+        result += pow(remainder, n);
+        temp /= 10;
+    }
+
+   
+    if ((int)result == originalNum)
+        printf("%d is an Armstrong number.\n", originalNum);
+    else
+        printf("%d is not an Armstrong number.\n", originalNum);
+
+    return 0;
+}
+
 
       
 
 
 
-}
+
+
 
 
