@@ -3,34 +3,28 @@
 
 int main() {
     FILE *fp;
-    int num, count = 0;
+    int num, cnt = 0;
     int sum = 0;
-    float avg;
+    float average;
 
     fp = fopen("numbers.txt", "r");
     if (fp == NULL) {
         printf("Error opening file!\n");
         return 1;
     }
-
-    // Read integers until EOF
     while (fscanf(fp, "%d", &num) != EOF) {
         sum += num;
-        count++;
+        cnt++;
     }
-
     fclose(fp);
-
-    if (count == 0) {
+    if (cnt == 0) {
         printf("No numbers found in file.\n");
         return 0;
     }
-
-    avg = (float) sum / count;
-
-    // Print results
+    average = (float) sum / cnt;
     printf("Sum = %d\n", sum);
-    printf("Average = %.2f\n", avg);
+    printf("Average = %.2f\n", average);
 
     return 0;
 }
+
