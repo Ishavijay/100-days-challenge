@@ -1,41 +1,36 @@
 //Use malloc() to allocate structure memory dynamically and print details.
 #include <stdio.h>
-#include <stdlib.h>   // for malloc()
+#include <stdlib.h> 
 #include <string.h>
-
-struct Student {
-    int id;
+struct employee {
+    int emp_id;
     char name[50];
-    int age;
+    float salary;
 };
 
 int main() {
-    // Dynamically allocate memory for one Student struct
-    struct Student *s = (struct Student *) malloc(sizeof(struct Student));
-
-    if (s == NULL) {
+    // Dynamically allocate memory for one employee struct
+    struct employee *e = (struct employee *) malloc(sizeof(struct employee));
+if (e == NULL) {
         printf("Memory allocation failed!\n");
         return 1;
     }
+    
+    printf("Enter employee ID: ");
+    scanf("%d", &e->emp_id);
 
-    // Taking inputs
-    printf("Enter Student ID: ");
-    scanf("%d", &s->id);
+    printf("Enter employee Name: ");
+    scanf("%s", &e->name);
 
-    printf("Enter Student Name: ");
-    scanf("%s", s->name);
-
-    printf("Enter Student Age: ");
-    scanf("%d", &s->age);
-
-    // Printing details
-    printf("\n--- Student Details ---\n");
-    printf("ID   : %d\n", s->id);
-    printf("Name : %s\n", s->name);
-    printf("Age  : %d\n", s->age);
+    printf("Enter employee Age: ");
+    scanf("%f", &e->salary);
+    printf("\n--- Employee details ---\n");
+    printf("Employee ID  : %d\n", s->emp_id);
+    printf("Name : %s\n", e->name);
+    printf("Salary  : %f\n", e->salary);
 
     // Free memory
-    free(s);
-
+    free(e);
     return 0;
 }
+
