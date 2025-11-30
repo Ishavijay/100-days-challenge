@@ -9,11 +9,9 @@ struct Student {
 
 int main() {
     struct Student s;
-    struct Student *ptr;  // pointer to struct
+    struct Student *ptr;  
 
-    ptr = &s;  // assign address of struct to pointer
-
-    // Input data using pointer
+    ptr = &s;  
     printf("Enter Student ID: ");
     scanf("%d", &ptr->id);
 
@@ -22,11 +20,7 @@ int main() {
 
     printf("Enter Student Marks: ");
     scanf("%f", &ptr->marks);
-
-    // Modify data using pointer
-    ptr->marks += 5;  // add 5 marks as bonus
-
-    // Display data using pointer
+    ptr->marks += 5; 
     printf("\n--- Student Details ---\n");
     printf("ID    : %d\n", ptr->id);
     printf("Name  : %s\n", ptr->name);
@@ -34,3 +28,4 @@ int main() {
 
     return 0;
 }
+
