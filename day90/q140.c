@@ -1,44 +1,27 @@
 //Define a struct with enum Gender and print person's gender.
 #include <stdio.h>
-
-// Define enum for Gender
-enum Gender {
-    MALE = 1,
-    FEMALE,
-    OTHER
-};
-
-// Define structure with enum member
+enum Gender { male=1, female, other};
 struct Person {
-    int id;
-    char name[50];
-    enum Gender gender;
+char Person_name[50];
+enum Gender G;
 };
 
 int main() {
-    struct Person p;
-
-    printf("Enter Person ID: ");
-    scanf("%d", &p.id);
-
+    struct Person P;
     printf("Enter Person Name: ");
-    scanf("%s", p.name);
+    scanf("%s", P.Person_name);
 
     printf("Select Gender (1-MALE, 2-FEMALE, 3-OTHER): ");
-    scanf("%d", (int*)&p.gender);
+    scanf("%d", (int*)&P.G);
 
-    // Print person details
-    printf("\n--- Person Details ---\n");
-    printf("ID     : %d\n", p.id);
-    printf("Name   : %s\n", p.name);
-
+    printf("\n-------------------Person Details ----------------------\n");
+    printf("Name   : %s\n", P.Person_name);
     printf("Gender : ");
-    switch (p.gender) {
-        case MALE:   printf("MALE\n"); break;
-        case FEMALE: printf("FEMALE\n"); break;
-        case OTHER:  printf("OTHER\n"); break;
-        default:     printf("INVALID\n"); break;
-    }
-
-    return 0;
+    switch (P.G) {
+        case MALE: printf("Male\n"); break;
+        case FEMALE:printf("Female\n"); break;
+        case OTHER: printf("Other\n"); break;
+        default:  printf("Invalid input!!\n"); break;
+    } return 0;
 }
+
