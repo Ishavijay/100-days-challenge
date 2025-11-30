@@ -1,38 +1,16 @@
 //Assign explicit values starting from 10 and print them
 #include <stdio.h>
-
-enum Level {
-    LOW = 10,
-    MEDIUM = 20,
-    HIGH = 30,
-    VERY_HIGH = 40
-};
-
+enum levels {LOW = 10,MEDIUM = 20,HIGH = 30,VERY_HIGH = 40};
 int main() {
+const char *levelsNames[] = {"LOW","MEDIUM", "HIGH","VERY_HIGH"};
+    int levelsValue[] = {LOW,MEDIUM,HIGH,VERY_HIGH};
+    int n= sizeof(levelsValue) / sizeof(levelsValue[0]);
 
-    // Arrays to map enum names to values
-    const char *levelNames[] = {
-        "LOW",
-        "MEDIUM",
-        "HIGH",
-        "VERY_HIGH"
-    };
-
-    int levelValues[] = {
-        LOW,
-        MEDIUM,
-        HIGH,
-        VERY_HIGH
-    };
-
-    int count = sizeof(levelValues) / sizeof(levelValues[0]);
-
-    printf("Enum Name     Integer Value\n");
+    printf("Level Name           Their value\n");
     printf("----------------------------\n");
 
-    for (int i = 0; i < count; i++) {
+    for (int j= 0; i < n; j++) {
         printf("%-12s = %d\n", levelNames[i], levelValues[i]);
-    }
-
-    return 0;
+    }return 0;
 }
+
