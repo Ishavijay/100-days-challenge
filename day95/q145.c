@@ -1,37 +1,36 @@
 //Return a structure containing top student's details from a function.
 #include <stdio.h>
-
 struct Student {
-    int id;
-    char name[50];
-    float marks;
+int Student_id;
+char name[50];
+float marks;
 };
 
-// Function to find the top student
-struct Student findTopStudent(struct Student s[], int n) {
-    int i, topIndex = 0;
+// Declaring a function
+struct Student top_student(struct Student s[], int m) {
+    int i, tIndex = 0;
 
-    for (i = 1; i < n; i++) {
-        if (s[i].marks > s[topIndex].marks) {
-            topIndex = i;
+    for (i = 1; i < m; i++) {
+        if (s[i].marks > s[tIndex].marks) {
+            tIndex = i;
         }
     }
 
-    return s[topIndex];  // return entire structure
+    return s[tIndex];  // return entire structure
 }
 
 int main() {
-    int n, i;
+    int m, i;
     printf("Enter number of students: ");
-    scanf("%d", &n);
+    scanf("%d", &m);
 
     struct Student s[n];
 
     // Input student details
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < m; i++) {
         printf("\nEnter details for Student %d:\n", i + 1);
-        printf("ID: ");
-        scanf("%d", &s[i].id);
+        printf("Student ID: ");
+        scanf("%d", &s[i].Student_id);
 
         printf("Name: ");
         scanf("%s", s[i].name);
@@ -40,14 +39,15 @@ int main() {
         scanf("%f", &s[i].marks);
     }
 
-    // Get top student
-    struct Student top = findTopStudent(s, n);
+    // Getting top student
+    struct Student topper = top_student(s, m);
 
-    // Display result
+    // Displaying result
     printf("\n--- Top Student Details ---\n");
-    printf("ID    : %d\n", top.id);
-    printf("Name  : %s\n", top.name);
-    printf("Marks : %.2f\n", top.marks);
+    printf("Student ID    : %d\n", topper.Student_id);
+    printf("Name  : %s\n", topper.name);
+    printf("Marks : %.2f\n", topper.marks);
 
     return 0;
 }
+
