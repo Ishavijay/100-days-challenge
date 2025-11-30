@@ -3,53 +3,52 @@
 #include <stdlib.h>
 
 struct Employee {
-    int id;
+    int emp_id;
     char name[50];
     float salary;
 };
 
 int main() {
-    struct Employee emp, empRead;
-    FILE *fp;
+    struct Employee e, Emp;
+    FILE *FP;
 
-    // ---- WRITE TO BINARY FILE ----
-    fp = fopen("employee.dat", "wb");  // open in write-binary mode
-    if (fp == NULL) {
+  
+    FP = fopen("employee.dat", "wb");  
+    if (FP == NULL) {
         printf("Error opening file for writing!\n");
         return 1;
     }
 
     // Take employee details
     printf("Enter Employee ID: ");
-    scanf("%d", &emp.id);
+    scanf("%d", &e.emp_id);
 
     printf("Enter Employee Name: ");
-    scanf("%s", emp.name);
+    scanf("%s", e.name);
 
     printf("Enter Employee Salary: ");
-    scanf("%f", &emp.salary);
+    scanf("%f", &e.salary);
 
     // Write struct to file
-    fwrite(&emp, sizeof(struct Employee), 1, fp);
-    fclose(fp);
+    fwrite(&e, sizeof(struct Employee), 1, FP);
+    fclose(FP);
 
     printf("\nEmployee data written to binary file successfully!\n");
 
     // ---- READ FROM BINARY FILE ----
-    fp = fopen("employee.dat", "rb");  // open in read-binary mode
-    if (fp == NULL) {
+    FP= fopen("employee.dat", "rb");  // open in read-binary mode
+    if (FP == NULL) {
         printf("Error opening file for reading!\n");
         return 1;
     }
-
-    fread(&empRead, sizeof(struct Employee), 1, fp);
-    fclose(fp);
-
-    // Display data read from file
-    printf("\n--- Employee Data Read from File ---\n");
-    printf("ID     : %d\n", empRead.id);
-    printf("Name   : %s\n", empRead.name);
-    printf("Salary : %.2f\n", empRead.salary);
+fread(&Emp, sizeof(struct Employee), 1, FP);
+    fclose(FP);
+    
+    printf("\n--- Reading employee Data from the file---\n");
+    printf("employee ID : %d\n", Emp.emp_id);
+    printf("Name   : %s\n", Emp.name);
+    printf("Salary : %.2f\n", Emp.salary);
 
     return 0;
 }
+
