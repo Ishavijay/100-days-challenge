@@ -4,27 +4,28 @@ for one. Print that missing number */
 #include<stdio.h>
 int main(){
     
-    int n;
-    printf("Enter the size of the array: ");
-    scanf("%d", &n);
+    int k;
+    printf("Enter size of array ");
+    scanf("%d", &k);
 
-    int arr[n];
-    printf("Enter %d elements (from 0 to %d with one missing):\n", n, n);
+    int arr[k];
+    printf("Enter %d elements:\n", k, k);
 
-    for(int i = 0; i < n; i++){
-        scanf("%d", &arr[i]);
+    for(int j= 0; j < k; j++){
+        scanf("%d", &arr[j]);
     }
 
-    int expectedSum = n * (n + 1) / 2;
-    int actualSum = 0;
+    int expected_Sum = k * (k + 1) / 2;
+    int actual_Sum = 0;
     
-    for(int i = 0; i < n; i++){
-        actualSum += arr[i];
+    for(int j = 0; j < k; j++){
+        actual_Sum += arr[j];
     }
 
-    int missingNumber = expectedSum - actualSum;
+    int missing_Number = expected_Sum - actual_Sum;
 
-    printf("Missing number: %d\n", missingNumber);
+    printf("Missing number: %d\n", missing_Number);
 
     return 0;
+
 }
